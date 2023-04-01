@@ -35,7 +35,7 @@ for file in *; do
 	rm $file.tmp
 	mv "$file.tmp2" "$file.rb"
 
-	sed -i '' '/def install/,/end/c\  def install\n    bin.install "'"$file"'"' "$file.rb"
+	sed -i '' '/def install/,/end/c\def install\n    bin.install "'"$file"'"\n  end' "$file.rb"
 
 	cd ../brew-scripts
   fi

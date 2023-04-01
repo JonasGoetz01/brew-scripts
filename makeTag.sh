@@ -18,9 +18,10 @@ git push -u origin $new_tag
 
 for file in *; do
   if [[ $file != "README.md" && $file != "src" && ${file: -3} != ".sh" ]]; then
-    echo "$file"
+    brew create https://github.com/JonasGoetz01/brew-scripts/archive/refs/tags/$latest_tag.tar.gz --tap=$file
+  	mv /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb ./$file.rb
   fi
 done
 
-#brew create https://github.com/JonasGoetz01/brew-scripts/archive/refs/tags/$latest_tag.tar.gz --tap=
+
 

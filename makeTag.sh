@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+
+	./spinner.sh "./prepareFiles.sh" "Prepare files"
 	git add .
 	git commit -m "automated commit by makeTag.sh"
 	git push
@@ -60,8 +62,6 @@
 	git push
 
 
-
-./spinner.sh "./prepareFiles.sh" "Prepare files"
 #./spinner.sh "scriptsPushen" "Push scripts"
 #./spinner.sh "tagErstellen" "Create tag"
 #./spinner.sh "formulaErstellen" "Create formulas"

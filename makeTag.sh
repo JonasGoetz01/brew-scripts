@@ -35,7 +35,7 @@ for file in *; do
 	rm $file.tmp
 	mv "$file.tmp2" "$file.rb"
 
-	sed -i '' 's/system "\.\/configure", \*std_configure_args, "--disable-silent-rules"/bin.install bin.install "'"$file"'"/g' $file.rb"
+	sed -i '' 's/system "\.\/configure", \*std_configure_args, "--disable-silent-rules"/	bin.install bin.install "'"$file"'"/g' $file.rb"
 
 	cd ../brew-scripts
   fi

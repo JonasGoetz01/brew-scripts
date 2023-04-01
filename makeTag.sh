@@ -29,7 +29,7 @@ for file in *; do
 	# Remove every line that starts with a #
 	sed -E -e 's/[[:space:]]*#.*//' -e '/^[[:space:]]*$/d' "$file.rb" > "$file.tmp"
 
-	sed '/def test/,/end/ d' "$file.tmp" > "$file.tmp2"
+	sed '/test do/,/end/ d' "$file.tmp" > "$file.tmp2"
 
 	# Replace the original file with the modified file
 	rm $file.tmp

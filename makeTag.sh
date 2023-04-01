@@ -16,10 +16,11 @@ git tag $new_tag
 # Push the new tag to the remote repository
 git push -u origin $new_tag
 
+export HOMEBREW_EDITOR="/bin/cat"
+
 for file in *; do
   if [[ $file != "README.md" && $file != "src" && ${file: -3} != ".sh" ]]; then
-    brew create https://github.com/JonasGoetz01/brew-scripts/archive/refs/tags/$latest_tag.tar.gz --set-name=$file
-  	mv /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb ./$file.rb
+    brew create https://github.com/JonasGoetz01/brew-scripts/archive/refs/tags/$latest_tag.tar.gz --set-name=$file > $file.rb
   fi
 done
 

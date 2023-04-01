@@ -15,3 +15,12 @@ git tag $new_tag
 
 # Push the new tag to the remote repository
 git push -u origin $new_tag
+
+for file in *; do
+  if [[ $file != "README.md" && ${file: -3} != ".sh" ]]; then
+    echo "$file"
+  fi
+done
+
+#brew create https://github.com/JonasGoetz01/brew-scripts/archive/refs/tags/$latest_tag.tar.gz --tap=
+

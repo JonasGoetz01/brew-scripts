@@ -27,7 +27,7 @@ for file in *; do
 	cd ../homebrew-jogo
 
 	# Remove every line that starts with a #
-	sed -E '/^\s*#/d' "$file.rb" > "$file.tmp"
+	sed -E -e 's/[[:space:]]*#.*//' -e '/^[[:space:]]*$/d' "$file.rb" > "$file.tmp"
 
 	# Replace the original file with the modified file
 	mv "$file.tmp" "$file.rb"

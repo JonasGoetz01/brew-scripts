@@ -36,7 +36,8 @@ for file in *; do
 	mv "$file.tmp2" "$file.rb"
 
 	sed -i '' 's/system "\.\/configure", \*std_configure_args, "--disable-silent-rules"/bin.install "'"$file"'"/g' "$file.rb"
-	sed -i '' '1,/^class/ d' "$file.rb"
+	class_line=$(grep -n "class" "$filename" | head -n 1 | cut -d ":" -f 1)
+	sed -i "1,$((class_line-1))d" "$file.rb"
 	cd ../brew-scripts
   fi
 done

@@ -9,6 +9,7 @@ int main(int argc, char **argv)
 	{
 		system("brew update");
 		system("brew outdated");
+		system("brew cleanup");
 	}
 
 	if (argc == 2 && strcmp(argv[1], "-y") == 0) 
@@ -17,6 +18,7 @@ int main(int argc, char **argv)
 		system("brew upgrade");
 		system("brew upgrade --cask --greedy");
 		system("brew upgrade $(brew outdated --cask --greedy --quiet)");
+		system("brew cleanup");
 	}
 	return 0;
 }

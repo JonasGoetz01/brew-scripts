@@ -20,7 +20,9 @@ export HOMEBREW_EDITOR="/bin/cat"
 
 for file in *; do
   if [[ $file != "README.md" && $file != "src" && ${file: -3} != ".sh" ]]; then
+	  rm /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb
     brew create https://github.com/JonasGoetz01/brew-scripts/archive/refs/tags/$latest_tag.tar.gz --set-name=$file > ../homebrew-jogo/$file.rb
+  rm /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb
   fi
 done
 

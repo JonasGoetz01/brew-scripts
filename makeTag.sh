@@ -40,5 +40,9 @@ for file in *; do
   fi
 done
 
-
+cd ../homebrew-jogo
+git add .
+git commit -m "automated commit by makeTag.sh"
+git push
+cd ../brew-scripts
 

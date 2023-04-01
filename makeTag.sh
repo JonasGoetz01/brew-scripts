@@ -48,4 +48,12 @@ git add .
 git commit -m "automated commit by makeTag.sh"
 git push
 cd ../brew-scripts
+for file in *; do
+  if [[ $file != "README.md" && $file != "src" && ${file: -3} != ".sh" ]]; then
+	  rm $file
+  fi
+done
 
+git add .
+git commit -m "cleanup"
+git push

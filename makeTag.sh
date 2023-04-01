@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-./prepareFiles.sh
+./spinner.sh "./prepareFiles.sh" "Prepare files"
 
 git add .
 git commit -m "automated commit by makeTag.sh"

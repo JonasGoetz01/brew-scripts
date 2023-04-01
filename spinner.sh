@@ -19,7 +19,7 @@ while kill -0 $pid 2> /dev/null; do
 done
 
 # Check if the command succeeded or failed
-if [ ${PIPESTATUS[@]} -eq 0 ]; then
+if [ $? -eq 0 ]; then
     echo -e "\r\033[32m✔\033[0m $message"
 else
     echo -e "\r\033[31m✘\033[0m $message"
@@ -27,4 +27,4 @@ fi
 
 # Return the exit code of the command
 wait $pid
-exit ${PIPESTATUS[@]}
+exit $?

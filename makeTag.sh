@@ -17,7 +17,7 @@ git tag $new_tag
 git push -u origin $new_tag
 
 for file in *; do
-  if [[ $file != "README.md" && ${file: -3} != ".sh" ]]; then
+  if [[ $file != "README.md" && $file != "src" && ${file: -3} != ".sh" ]]; then
     echo "$file"
   fi
 done

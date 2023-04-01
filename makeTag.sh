@@ -1,12 +1,9 @@
 #!/bin/zsh
 
-function scriptsPushen() {
 	git add .
 	git commit -m "automated commit by makeTag.sh"
 	git push
-}
 
-function tagErstellen() {
 	# Fetch the latest tag name
 	latest_tag=$(git describe --tags --abbrev=0)
 
@@ -18,9 +15,7 @@ function tagErstellen() {
 
 	# Push the new tag to the remote repository
 	git push -u origin $new_tag
-}
 
-function formulaErstellen() {
 	export HOMEBREW_EDITOR="/bin/cat"
 
 	for file in *; do
@@ -45,34 +40,31 @@ function formulaErstellen() {
 		cd ../brew-scripts
   	fi
 	done
-}
 
-function updateFormulaRepo() {
 	cd ../homebrew-jogo
 	git add .
 	git commit -m "automated commit by makeTag.sh"
 	git push
-}
-function cleanup(){
+
+
 	cd ../brew-scripts
 	for file in *; do
   	if [[ $file != "README.md" && $file != "src" && ${file: -3} != ".sh" ]]; then
 	  	rm $file
   	fi
 	done
-}
 
-function pushCleanup(){
+
 	git add .
 	git commit -m "cleanup"
 	git push
-}
+
 
 
 ./spinner.sh "./prepareFiles.sh" "Prepare files"
-./spinner.sh "scriptsPushen" "Push scripts"
-./spinner.sh "tagErstellen" "Create tag"
-./spinner.sh "formulaErstellen" "Create formulas"
-./spinner.sh "updateFormulaRepo" "Update Formula repository"
-./spinner.sh "cleanup" "Cleanup"
-./spinner.sh "pushCleanup" "Push clean repository"
+#./spinner.sh "scriptsPushen" "Push scripts"
+#./spinner.sh "tagErstellen" "Create tag"
+#./spinner.sh "formulaErstellen" "Create formulas"
+#./spinner.sh "updateFormulaRepo" "Update Formula repository"
+#./spinner.sh "cleanup" "Cleanup"
+#./spinner.sh "pushCleanup" "Push clean repository"

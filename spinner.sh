@@ -6,11 +6,11 @@ message="$2"
 echo -ne "$message "
 
 # Run the command in the background
-eval "$1" > /dev/null 2>&1 &
+eval "$1" >> ./log 2>&1 &
 pid=$!
 
 # Animate the spinner while the command is running
-while kill -0 $pid 2> /dev/null; do
+while kill -0 $pid 2>> ./log; do
     for i in $(seq 0 ${#spinner})-1; do
         echo -ne "\r${spinner:$i:1} $message"
         echo -ne "\b"
